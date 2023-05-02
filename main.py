@@ -23,7 +23,7 @@ def cadastrarPeca():
     global codigo
     while True:
       codigo += 1
-      peca['Codigo'] = '{:03d}'.format(codigo)
+      peca['Codigo'] = codigo
       print(f'Código da peça: {codigo:03d}') # saída: 001
       peca['Nome'] = str(input('Por favor, entre com o NOME da peça: '))
       peca['Fabricante:'] = str(input('Por favor, entre com o FABRICANTE da peça: '))
@@ -51,11 +51,16 @@ while True:
   print('Escolha a opção desejada:')
   print('1 - Cadastrar peças')
   print('2 - Consultar Peças')
-  print('3 - remover peças')
-  print('4 - SAIR')
+  print('3 - Remover peças')
+  print('4 - Sair')
   opUser = int(input('>>> '))
   if opUser == 1:
     cadastrarPeca()
   elif opUser == 2:
     consultaPeca()
+  elif opUser == 3:
+    removerPeca()
+  elif opUser == 4:
+    break
+    
 # fim do main
