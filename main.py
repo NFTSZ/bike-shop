@@ -11,8 +11,8 @@ def cadastrarPeca():
     # Adiciona o código, nome, fabricante e valor da peça ao dicionário de acordo com o input do usuário
     peca['Codigo'] = codigo
     print(f'Código da peça: {codigo:03d}') # saída: 001
-    peca['Nome'] = str(input('Por favor, entre com o NOME da peça: '))
-    peca['Fabricante'] = str(input('Por favor, entre com o FABRICANTE da peça: '))
+    peca['Nome'] = str(input('Por favor, entre com o NOME da peça: ')).lower()
+    peca['Fabricante'] = str(input('Por favor, entre com o FABRICANTE da peça: ')).lower()
     peca['Valor'] = float(input('Por favor, entre com o VALOR da peça: '))
     # Adiciona o dicionario peça à uma lista
     pecas.append(peca)
