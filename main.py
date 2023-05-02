@@ -1,23 +1,3 @@
-'''Escolha a opção desejada:
-      1 - Cadastrar peças
-      2 - Consultar Peças
-        1) Consultar todas as peças
-        2) Consultar Peças por código
-        3) consultar peças por fabricante
-        4) retornar
-      3 - remover peças
-      4 - SAIR
-              
-      for e in pecas:
-        for i,j in e.items():
-          print(f'{i}: {j}')
-          
-      encerrar = int(input('>>'))
-      if encerrar == 1:
-        break
-      else:
-        continue'''
-        
 # inicio da função cadastrarPeca()
 def cadastrarPeca():
   global codigo
@@ -43,17 +23,27 @@ def consultaPeca():
     print('4 - Retornar')
     opcUser = int(input('>>> '))
     if opcUser == 1:
-      for e in pecas:
+      for valor in pecas:
         print('--'*10)
-        for i,j in e.items():
-          print(f'{i}: {j}')
+        for chaves, valores in valor.items():
+          print(f'{chaves}: {valores}')
         print('--'*10)
     elif opcUser == 2:
       codigoProduto = int(input('Digite o CÓDIGO da peça: ')) 
       for peca in pecas:
         if peca['Codigo'] == codigoProduto:
-          for i,j in peca.items():
-            print(f'{i}: {j}')          
+          print('--'*10)
+          for chaves,valores in peca.items():
+            print(f'{chaves}: {valores}')          
+          print('--'*10)
+    elif opcUser == 3:
+      fabricanteProduto = str(input('Digite o FABRICANTE da peça: ')).lower()
+      for peca in pecas:
+        if peca['Fabricante'] == fabricanteProduto:
+          print('--'*10)
+          for chaves,valores in peca.items():
+            print(f'{chaves}: {valores}')          
+          print('--'*10) 
     elif opcUser == 4:
       break
       
@@ -68,7 +58,6 @@ def removerPeca():
 # inicio do main
 codigo = 0
 pecas = []
-peca = {}
 print('Bem vindo(a) ao Controle de Estoque da Bicicletaria da Naftaly Benedita Souza')
 while True:
   print('Escolha a opção desejada:')
