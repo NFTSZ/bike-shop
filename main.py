@@ -1,35 +1,49 @@
 # inicio da função cadastrarPeca()
 def cadastrarPeca():
+  # Variável global para armazenar o código da peça
   global codigo
+  # Loop infinito para o cadastro de peças
   while True:
+     # Dicionário para armazenar as informações da peça, inicialmente vazio.
     peca = {}
+    # Contador ára incrementar o código da peça
     codigo += 1
+    # Adiciona o código, nome, fabricante e valor da peça ao dicionário de acordo com o input do usuário
     peca['Codigo'] = codigo
     print(f'Código da peça: {codigo:03d}') # saída: 001
     peca['Nome'] = str(input('Por favor, entre com o NOME da peça: '))
     peca['Fabricante'] = str(input('Por favor, entre com o FABRICANTE da peça: '))
     peca['Valor'] = float(input('Por favor, entre com o VALOR da peça: '))
+    # Adiciona o dicionario peça à uma lista
     pecas.append(peca)
+    # Encerra o loop
     break
 # fim da função cadastrarPeca()
 
 # inicio da função consultaPeca()
 def consultaPeca():
+  # Mais um loop infinito, agora para a consulta de peças
   while True:
+    # Exibe as opções de consulta de peças
     print('Escolha a opção desejada:')
     print('1 - Consultar todas as peças')
     print('2 - Consultar peça por Código')
     print('3 - Consultar peça por Fabricante')
     print('4 - Retornar')
+    # Lê a opção escolhida pelo usuário
     opcUser = int(input('>>> '))
+    # Verifica cada opção escolhida pelo usuário
     if opcUser == 1:
+      # Loop para exibir todas as peças cadastradas de forma limpa
       for valor in pecas:
         print('--'*10)
         for chaves, valores in valor.items():
           print(f'{chaves}: {valores}')
         print('--'*10)
     elif opcUser == 2:
+      # Pede ao usuário o código da peça a ser consultada
       codigoProduto = int(input('Digite o CÓDIGO da peça: ')) 
+      # Loop para buscar a peça pelo código e exibi-la de forma limpa
       for peca in pecas:
         if peca['Codigo'] == codigoProduto:
           print('--'*10)
@@ -37,13 +51,16 @@ def consultaPeca():
             print(f'{chaves}: {valores}')          
           print('--'*10)
     elif opcUser == 3:
+      # Pede ao usuário o fabricante da peça a ser consultada
       fabricanteProduto = str(input('Digite o FABRICANTE da peça: ')).lower()
+      # Loop para buscar a peça pelo fabricante e exibi-la
       for peca in pecas:
         if peca['Fabricante'] == fabricanteProduto:
           print('--'*10)
           for chaves,valores in peca.items():
             print(f'{chaves}: {valores}')          
           print('--'*10) 
+    # opção 4 - retornar ao menu principal, encerra o loop atual
     elif opcUser == 4:
       break
       
