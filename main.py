@@ -6,10 +6,10 @@ def cadastrarPeca():
   while True:
      # Dicionário para armazenar as informações da peça, inicialmente vazio.
     peca = {}
-    # Contador ára incrementar o código da peça
+    # Contador irá incrementar o código da peça
     codigo += 1
     # Adiciona o código, nome, fabricante e valor da peça ao dicionário de acordo com o input do usuário
-    peca['Codigo'] = codigo
+    peca['Codigo'] = int(codigo)
     print(f'Código da peça: {codigo:03d}') # saída: 001
     peca['Nome'] = str(input('Por favor, entre com o NOME da peça: ')).lower()
     peca['Fabricante'] = str(input('Por favor, entre com o FABRICANTE da peça: ')).lower()
@@ -47,7 +47,7 @@ def consultaPeca():
       for peca in pecas:
         if peca['Codigo'] == codigoProduto:
           print('--'*10)
-          for chaves,valores in peca.items():
+          for chaves, valores in peca.items():
             print(f'{chaves}: {valores}')          
           print('--'*10)
     elif opcUser == 3:
@@ -57,19 +57,22 @@ def consultaPeca():
       for peca in pecas:
         if peca['Fabricante'] == fabricanteProduto:
           print('--'*10)
-          for chaves,valores in peca.items():
+          for chaves, valores in peca.items():
             print(f'{chaves}: {valores}')          
           print('--'*10) 
     # opção 4 - retornar ao menu principal, encerra o loop atual
     elif opcUser == 4:
       break
-      
-      
 # fim da função consultaPeca()
 
 # inicio da função removerPeca()
 def removerPeca():
-  print('')
+  codigoProduto = int(input('Digite o CÓDIGO da peça a ser removida: '))
+  # para cada cadastro (dicionario) de peça na lista de peças
+  for peca in pecas:
+    # se o código do cadastro for igual ao código inserido pelo usúarios, remova o cadastro da peça da lista
+    if peca['Codigo'] == codigoProduto:
+      pecas.remove(peca)
 # fim da função removerPeca() 
 
 # inicio do main
