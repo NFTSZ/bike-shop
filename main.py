@@ -73,12 +73,13 @@ def removerPeca():
     # se o código do cadastro for igual ao código inserido pelo usúarios, remova o cadastro da peça da lista
     if peca['Codigo'] == codigoProduto:
       pecas.remove(peca)
+  print('Peça removida!')
 # fim da função removerPeca() 
 
 # inicio do main
 codigo = 0
 pecas = []
-print('Bem vindo(a) ao Controle de Estoque da Bicicletaria da Naftaly Benedita Souza')
+print('Bem vindo(a) ao Controle de Estoque da Bicicletaria da Naftaly Souza')
 while True:
   print('Escolha a opção desejada:')
   print('1 - Cadastrar peças')
@@ -97,5 +98,4 @@ while True:
     removerPeca()
   elif opUser == 4:
     break
-    
 # fim do main
